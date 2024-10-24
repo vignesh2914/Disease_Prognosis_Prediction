@@ -3,6 +3,19 @@ artifacts_root: artifacts
 data_ingestion:
 
   root_dir: artifacts/data_ingestion
-  source_URL: https://raw.githubusercontent.com/vignesh2914/Datasets/main/Disease_prognosis.csv
+  source_URL: https://github.com/vignesh2914/Datasets/raw/refs/heads/main/Disease_prognosis.zip
   local_data_file: artifacts/data_ingestion/data.zip
-  unzip_dir: artifacts/data_ingestion 
+  unzip_dir: artifacts/data_ingestion
+
+data_validation:
+  root_dir: artifacts/data_validation
+  unzip_data_dir: artifacts/data_ingestion/Disease_prognosis.csv
+  STATUS_FILE: artifacts/data_validation/status.txt
+  
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_ingestion/Disease_prognosis.csv
+
+
+
+
