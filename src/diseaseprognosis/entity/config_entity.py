@@ -35,3 +35,12 @@ class ModelTrainerConfig:
     min_samples_leaf: int
     random_state: int
     target_column: str
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    test_data_path: Path
+    model_path: Path
+    all_params: dict
+    metric_file_name: Path  ## typically we have (accuracy, precision, recall, F1 score, etc.)
+    target_column: str
