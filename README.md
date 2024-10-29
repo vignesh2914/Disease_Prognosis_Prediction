@@ -1,9 +1,15 @@
 ## **Disease Prognosis**
 
-### Screenshot Predicted Output
+### **Screenshot Predicted Output**
 
 ![Disease Prognosis Overview](images/ss_01.png)
 ![Disease Prognosis Overview](images/ss_02.png)
+
+### **Docker Image**
+
+The Docker image for this project is available on Docker Hub:
+
+[ponvigneswaran/disease-prognosis-app](https://hub.docker.com/r/ponvigneswaran/disease-prognosis-app/tags)
 
 ## **Workflow**
 
