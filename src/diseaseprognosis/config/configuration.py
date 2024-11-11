@@ -55,18 +55,6 @@ class ConfigurationManager:
             data_path=config.data_path,
         )
         return data_transformation_config
-        
-    def __init__(
-        self,
-        config_filepath = CONFIG_FILE_PATH,
-        params_filepath = PARAMS_FILE_PATH,
-        schema_filepath = SCHEMA_FILE_PATH):
-
-        self.config = read_yaml(config_filepath)
-        self.params = read_yaml(params_filepath)
-        self.schema = read_yaml(schema_filepath)
-
-        create_directories([self.config.artifacts_root])
 
 
     def get_model_trainer_config(self) -> ModelTrainerConfig:
@@ -90,19 +78,7 @@ class ConfigurationManager:
 
         return model_trainer_config
     
-    def __init__(
-        self,
-        config_filepath = CONFIG_FILE_PATH,
-        params_filepath = PARAMS_FILE_PATH,
-        schema_filepath = SCHEMA_FILE_PATH):
 
-        self.config = read_yaml(config_filepath)
-        self.params = read_yaml(params_filepath)
-        self.schema = read_yaml(schema_filepath)
-
-        create_directories([self.config.artifacts_root])
-
-    
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         config = self.config.model_evaluation
         params = self.params.RandomForest
@@ -116,8 +92,8 @@ class ConfigurationManager:
             model_path = config.model_path,
             all_params=params,
             metric_file_name = config.metric_file_name,
-            target_column = schema.name
-           
+            target_column = schema.name,
+            mlflow_uri="https://dagshub.com/vignesh2914/Disease_Prognosis_Prediction.mlflow",     
         )
 
         return model_evaluation_config

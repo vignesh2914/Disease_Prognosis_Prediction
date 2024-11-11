@@ -11,6 +11,14 @@ The Docker image for this project is available on Docker Hub:
 
 [ponvigneswaran/disease-prognosis-app](https://hub.docker.com/r/ponvigneswaran/disease-prognosis-app/tags)
 
+
+### MLflow Integration
+
+We have successfully integrated MLflow to track and save model parameters for experimentation. You can view the details of the tested parameters in the following links:
+
+- **Run Details**: 🏃[View run unruly-bear-197](https://dagshub.com/vignesh2914/Disease_Prognosis_Prediction.mlflow/#/experiments/0/runs/ccfea322ad5746d7a89dbe361afa51c1)
+- **Experiment Overview**: 🧪[View experiment](https://dagshub.com/vignesh2914/Disease_Prognosis_Prediction.mlflow/#/experiments/0)
+
 ## **Workflow**
 
 1. Update config.yaml
