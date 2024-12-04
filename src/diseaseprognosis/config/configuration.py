@@ -60,6 +60,7 @@ class ConfigurationManager:
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         config = self.config.model_trainer
         params = self.params.RandomForest
+        params_pca = self.params.PCA  # Added PCA parameters
         schema =  self.schema.TARGET_COLUMN
 
         create_directories([config.root_dir])
@@ -73,7 +74,9 @@ class ConfigurationManager:
             min_samples_split = params.min_samples_split,
             random_state = params.random_state,
             min_samples_leaf = params.min_samples_leaf,
-            target_column = schema.name
+            target_column = schema.name,
+            n_components=params_pca.n_components  # Added PCA n_components
+
         )
 
         return model_trainer_config

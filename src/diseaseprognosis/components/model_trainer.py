@@ -1,4 +1,5 @@
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.decomposition import PCA
 from diseaseprognosis.entity.config_entity import ModelTrainerConfig
 import pandas as pd
 import joblib
@@ -7,6 +8,10 @@ import os
 class ModelTrainer:
     def __init__(self, config: ModelTrainerConfig):
         self.config = config
+
+        # Initialize PCA with the number of components from the config
+        self.pca = PCA(n_components=self.config.n_components, random_state=self.config.random_state)
+
         # Initialize Random Forest model with parameters from the config
         self.model = RandomForestClassifier(
             n_estimators=self.config.n_estimators,

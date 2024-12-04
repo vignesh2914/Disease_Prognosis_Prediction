@@ -35,7 +35,7 @@ class ModelTrainerConfig:
     min_samples_leaf: int
     random_state: int
     target_column: str
-
+    n_components: float  # PCA components as a percentage of variance to retain
 
 @dataclass(frozen=True)
 class ModelEvaluationConfig:
