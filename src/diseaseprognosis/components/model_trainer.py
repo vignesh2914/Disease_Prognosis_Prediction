@@ -33,9 +33,14 @@ class ModelTrainer:
         # Train the Random Forest model
         self.model.fit(train_x, train_y)
 
-        # Save the trained model to a file
-        model_path = os.path.join(self.config.root_dir, self.config.model_name)
-        joblib.dump(self.model, model_path)
-        print(f"Model saved at {model_path}")
+        # Save the trained Random Forest model to a separate file
+        rf_model_path = os.path.join(self.config.root_dir, f"{self.config.model_name}_rf")
+        joblib.dump(self.model, rf_model_path)
+        print(f"Random Forest model saved at {rf_model_path}")
 
-        return model_path
+        # Save the PCA model to a separate file
+        pca_model_path = os.path.join(self.config.root_dir, f"{self.config.model_name}_pca")
+        joblib.dump(self.pca, pca_model_path)
+        print(f"PCA components saved at {pca_model_path}")
+
+        return rf_model_path, pca_model_path
