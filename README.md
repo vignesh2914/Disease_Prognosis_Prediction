@@ -1,8 +1,6 @@
 ## **Disease Prognosis**
 
-### Live Demo
 
-Check out the live app on Streamlit: [Disease Prognosis Prediction App](https://diseaseprognosisprediction-vghkytt85y3nwmukldb3xp.streamlit.app/)
 
 ### **Screenshot Predicted Output**
 
