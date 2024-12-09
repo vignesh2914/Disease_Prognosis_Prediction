@@ -7,11 +7,10 @@ from diseaseprognosis.entity.config_entity import DataIngestionConfig, DataValid
 class ConfigurationManager:
     def __init__(
         self,
-        config_filepath=CONFIG_FILE_PATH,
-        params_filepath=PARAMS_FILE_PATH,
-        schema_filepath=SCHEMA_FILE_PATH
-    ):
-        # Load the configurations, parameters, and schema files
+        config_filepath = CONFIG_FILE_PATH,
+        params_filepath = PARAMS_FILE_PATH,
+        schema_filepath = SCHEMA_FILE_PATH):
+
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
         self.schema = read_yaml(schema_filepath)
@@ -40,9 +39,10 @@ class ConfigurationManager:
         data_validation_config = DataValidationConfig(
             root_dir=config.root_dir,
             STATUS_FILE=config.STATUS_FILE,
-            unzip_data_dir=config.unzip_data_dir,
+            unzip_data_dir = config.unzip_data_dir,
             all_schema=schema,
         )
+
         return data_validation_config
 
     def get_data_transformation_config(self) -> DataTransformationConfig:
@@ -56,31 +56,26 @@ class ConfigurationManager:
         )
         return data_transformation_config
 
-
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         config = self.config.model_trainer
         params = self.params.RandomForest
-        params_pca = self.params.PCA  # Added PCA parameters
-        schema =  self.schema.TARGET_COLUMN
+        schema = self.schema.TARGET_COLUMN
 
         create_directories([config.root_dir])
 
         model_trainer_config = ModelTrainerConfig(
             root_dir=config.root_dir,
-            train_data_path = config.train_data_path,
-            test_data_path = config.test_data_path,
-            model_name = config.model_name,
-            n_estimators = params.n_estimators,
-            min_samples_split = params.min_samples_split,
-            random_state = params.random_state,
-            min_samples_leaf = params.min_samples_leaf,
-            target_column = schema.name,
-            n_components=params_pca.n_components  # Added PCA n_components
-
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            n_estimators=params.n_estimators,
+            min_samples_split=params.min_samples_split,
+            random_state=params.random_state,
+            min_samples_leaf=params.min_samples_leaf,
+            target_column=schema.name,
         )
 
         return model_trainer_config
-    
 
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         config = self.config.model_evaluation
@@ -100,8 +95,3 @@ class ConfigurationManager:
         )
 
         return model_evaluation_config
-
-    
-
-    
-  

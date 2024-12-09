@@ -1,6 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import  dataclass
 from pathlib import Path
-
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
@@ -8,6 +7,7 @@ class DataIngestionConfig:
     source_URL: str
     local_data_file: Path
     unzip_dir: Path
+
 
 @dataclass(frozen=True)
 class DataValidationConfig:
@@ -21,9 +21,6 @@ class DataTransformationConfig:
     root_dir: Path
     data_path: Path
 
-from dataclasses import dataclass
-from pathlib import Path
-
 @dataclass(frozen=True)
 class ModelTrainerConfig:
     root_dir: Path
@@ -35,7 +32,6 @@ class ModelTrainerConfig:
     min_samples_leaf: int
     random_state: int
     target_column: str
-    n_components: float  # PCA components as a percentage of variance to retain
 
 @dataclass(frozen=True)
 class ModelEvaluationConfig:
@@ -43,6 +39,6 @@ class ModelEvaluationConfig:
     test_data_path: Path
     model_path: Path
     all_params: dict
-    metric_file_name: Path
+    metric_file_name: Path  ## typically we have (accuracy, precision, recall, F1 score, etc.)
     target_column: str
-    mlflow_uri: str
+    mlflow_uri: str  # Add this line
