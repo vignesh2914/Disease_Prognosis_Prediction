@@ -1,5 +1,8 @@
 ## **Disease Prognosis**
 
+## **Live URL in Streamlit**
+
+[ponvigneswaran/disease-prognosis-app](https://endtoendprojectofdiseaseprognosisusingmlflow-hyr5bwaxw8j4g3vwa.streamlit.app/)
 
 
 ### **Screenshot Predicted Output**
